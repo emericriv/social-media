@@ -135,6 +135,37 @@ export const Navbar = () => {
             >
               Create Community
             </Link>
+
+            {/* Mobile Auth */}
+            <div className="block w-full md:hidden px-3 py-2 items-center">
+              {user ? (
+                <div className="flex items-center justify-between space-x-4">
+                  <div className="flex items-center justify-start space-x-4">
+                    {user.user_metadata?.avatar_url && (
+                      <img
+                        src={user.user_metadata.avatar_url}
+                        alt="User Avatar"
+                        className="w-8 h-8 rounded-full object-cover"
+                      />
+                    )}
+                    <span className="text-gray-300">{displayName}</span>
+                  </div>
+                  <button
+                    onClick={signOut}
+                    className="bg-red-500 px-3 py-1 rounded cursor-pointer"
+                  >
+                    Sign Out
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={signInWithGithub}
+                  className="bg-blue-500 px-3 py-1 rounded cursor-pointer"
+                >
+                  Sign in with GitHub
+                </button>
+              )}
+            </div>
           </div>
         </div>
       )}
