@@ -10,10 +10,7 @@ export interface Community {
 }
 
 export const fetchCommunities = async (): Promise<Community[]> => {
-  const { data, error } = await supabase
-    .from("communities")
-    .select("*")
-    .order("created_at", { ascending: false });
+  const { data, error } = await supabase.rpc("get_communities_by_activity");
 
   if (error) throw new Error(error.message);
 
@@ -30,7 +27,7 @@ export const CommunityList = () => {
   if (error) return <div>Error: {error.message}</div>;
 
   return (
-    <div className="max-w-5xl w-full mx-auto space-y-4">
+    <div className="max-w-5xl w-full space-y-4">
       {data?.map((community) => (
         <div
           key={community.id}
@@ -38,7 +35,7 @@ export const CommunityList = () => {
         >
           <Link
             to={`/community/${community.id}`}
-            className="text-2xl font-bold text-purple-500 hover:underline"
+            className="text-2xl font-bold text-amber-500 hover:underline"
           >
             {community.name}
           </Link>

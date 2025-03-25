@@ -36,8 +36,8 @@ export const CreateCommunity = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-4">
-      <h2 className="text-6xl font-bold mb-6 text-center bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+    <form onSubmit={handleSubmit} className="max-w-2xl space-y-4">
+      <h2 className="text-3xl font-bold mb-6 text-amber-500">
         Create New Community
       </h2>
       <div>
@@ -67,7 +67,9 @@ export const CreateCommunity = () => {
       </div>
       <button
         type="submit"
-        className="bg-purple-500 text-white px-4 py-2 rounded cursor-pointer"
+        className="bg-amber-500 text-black font-semibold px-4 py-2 rounded-lg cursor-pointer 
+             hover:bg-amber-600 hover:shadow-md active:scale-95 
+             transition-all duration-200"
       >
         {isPending ? "Creating..." : "Create Community"}
       </button>

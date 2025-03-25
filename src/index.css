@@ -32,6 +32,10 @@
   }
 }
 
+select {
+  background-color: rgb(18, 13, 4);
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(20px);

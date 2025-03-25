@@ -89,10 +89,7 @@ export const CreatePost = () => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="max-w-2xl mx-auto space-y-4 grow w-full"
-    >
+    <form onSubmit={handleSubmit} className="max-w-2xl space-y-2 grow w-full">
       <div>
         <label htmlFor="title" className="block mb-2 font-medium">
           Title
@@ -121,8 +118,12 @@ export const CreatePost = () => {
       </div>
 
       <div>
-        <label> Select Community</label>
-        <select id="community" onChange={handleCommunityChange}>
+        <label className="block mb-2 font-medium"> Select Community</label>
+        <select
+          id="community"
+          onChange={handleCommunityChange}
+          className="w-full border border-white/10 p-2 rounded appearance-none focus:outline-none"
+        >
           <option value={""}> -- Choose a Community -- </option>
           {communities?.map((community, key) => (
             <option key={key} value={community.id}>
@@ -141,12 +142,14 @@ export const CreatePost = () => {
           id="image"
           accept="image/*"
           onChange={handleFileChange}
-          className="w-full text-gray-200"
+          className="w-full text-gray-200 border border-white/10 bg-transparent p-2 rounded"
         />
       </div>
       <button
         type="submit"
-        className="bg-purple-500 text-white px-4 py-2 rounded cursor-pointer"
+        className="bg-amber-500 text-black font-semibold px-4 py-2 mt-2 rounded-lg cursor-pointer 
+             hover:bg-amber-600 hover:shadow-md active:scale-95 
+             transition-all duration-200"
       >
         {isPending ? "Creating..." : "Create Post"}
       </button>
