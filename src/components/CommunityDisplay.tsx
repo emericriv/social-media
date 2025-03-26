@@ -29,8 +29,6 @@ export const CommunityDisplay = ({ communityId }: Props) => {
     queryFn: () => fetchCommunityPost(communityId),
   });
 
-  console.log(data);
-
   if (isLoading) return <div>Loading communities...</div>;
   if (error) return <div>Error: {error.message}</div>;
 

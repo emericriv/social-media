@@ -6,7 +6,6 @@ interface Props {
 }
 
 export const PostItem = ({ post }: Props) => {
-  console.log(post);
   return (
     <Link to={`/post/${post.id}`} className="z-10">
       <div className="w-full h-76 bg-[rgb(24,27,32)] rounded-md p-5 text-white flex flex-col overflow-hidden transition-colors duration-300 border border-transparent hover:border-amber-300/30">
